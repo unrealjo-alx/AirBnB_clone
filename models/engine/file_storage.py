@@ -5,6 +5,7 @@ Module: file_storage
 
 import json
 import os
+from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -47,10 +48,9 @@ class FileStorage:
 
         with open(self.__file_path, "r") as file:
             serialized_data = json.load(file)
-
-        for object_key, object_value in serialized_data.items():
-            class_name, object_id = object_key.split(".")
-            object_class = globals().get(class_name)
-            if object_class:
-                object_instance = object_class(**object_value)
-                self.__objects[object_key] = object_instance
+            class_dict = {
+                "BaseModel": BaseModel,
+            }
+            for key, val in serialized_data.items():
+                obj = class_dict[val["__class__"]](**val)
+                type(self).__objects[key] = obj
