@@ -6,6 +6,7 @@ Module: file_storage
 import json
 import os
 from models.base_model import BaseModel
+from models.user import User
 
 
 class FileStorage:
@@ -46,7 +47,7 @@ class FileStorage:
 
         with open(self.__file_path, "r") as file:
             serialized_data = json.load(file)
-            class_dict = {"BaseModel": BaseModel}
+            class_dict = {"BaseModel": BaseModel, "User": User}
             for key, val in serialized_data.items():
                 obj = class_dict[val["__class__"]](**val)
                 self.__objects[key] = obj

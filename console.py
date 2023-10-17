@@ -5,11 +5,12 @@ console.py : The main program entry point.
 import cmd
 from models.base_model import BaseModel
 from models import storage
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
-    class_dict = {"BaseModel": BaseModel}
+    class_dict = {"BaseModel": BaseModel, "User": User}
 
     def do_quit(self, arg):
         """Quit command to exit the program."""
