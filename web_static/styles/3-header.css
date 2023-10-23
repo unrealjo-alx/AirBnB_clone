@@ -3,9 +3,11 @@ header {
   height: 70px;
   width: 100%;
   border-bottom: 1px solid #cccccc;
+  display: flex;
+  align-items: center;
 }
+
 header img {
-  margin-top: 15px;
-  margin-bottom: 15px;
   height: 40px;
+  margin-left: 20px;
 }

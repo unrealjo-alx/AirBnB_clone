@@ -5,11 +5,12 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 footer p {
   color: black;
   text-align: center;
-  height: 20px;
-  margin: 20px;
 }
